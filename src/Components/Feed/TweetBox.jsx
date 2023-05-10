@@ -4,7 +4,7 @@ import './TweetBox.css';
 import { Avatar, Button } from '@mui/material';
 
 // FIRESTORE
-import db from '../firebase';
+import { db } from '../../utils/firebase';
 import { collection, doc, setDoc } from 'firebase/firestore';
 
 function TweetBox() {

@@ -6,7 +6,7 @@ import TweetBox from './TweetBox';
 import Post from './Post';
 
 //FIRESTORE
-import db from '../firebase';
+import { db } from '../../utils/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 function Feed() {

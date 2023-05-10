@@ -1,18 +1,18 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // COMPONENTS
-import Sidebar from './Components/Sidebar';
-import Feed from './Components/Feed';
-import Widgets from './Components/Widgets';
-import './App.css';
+import Home from './Components/Home/Home';
+import Auth from './Components/Auth/Auth';
 
 function App() {
 	return (
-		<div className="app">
-			<Sidebar />
-			<Feed />
-			<Widgets />
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/auth" element={<Auth />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

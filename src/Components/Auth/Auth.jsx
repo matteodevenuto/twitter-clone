@@ -6,7 +6,7 @@ import SignUp from '../Forms/Sign-up';
 
 function Auth() {
 	return (
-		<div className="container">
+		<div className="auth-container">
 			<SignIn />
 			<SignUp />
 		</div>

@@ -1,4 +1,4 @@
-.container {
+.form-container {
 	margin: 200px 30px;
 	display: flex;
 	align-items: top;
@@ -7,7 +7,7 @@
 	padding: 20px;
 }
 
-h2 {
+.form-container > h2 {
 	margin-bottom: 20px;
 }
 
@@ -21,12 +21,12 @@ h2 {
 	align-items: center;
 }
 
-form {
+.form-container > form {
 	display: flex;
 	flex-direction: column;
 }
 
-input {
+.form-container > input {
 	margin-left: 20px;
 	font-size: 20px;
 	width: 300px;

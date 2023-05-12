@@ -45,6 +45,14 @@ export const createUserDocumentFromAuth = async (
 				displayName,
 				email,
 				createdAt,
+				verified: false,
+				url: null,
+				bio: null,
+				location: null,
+				profilePicture:
+					'https://media.idownloadblog.com/wp-content/uploads/2017/03/Twitter-new-2017-avatar-001.png',
+				banner:
+					'https://www.rccaraction.com/wp-content/uploads/2014/04/600-x-200-banner.jpg',
 				...additionalInformation,
 			});
 		} catch (error) {

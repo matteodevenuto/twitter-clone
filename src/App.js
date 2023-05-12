@@ -6,7 +6,7 @@ import './App.css';
 // COMPONENTS
 import Home from './Components/Home/Home';
 import Auth from './Components/Auth/Auth';
-import Profile from './Components/Profile/Profile';
+import ProfilePage from './Components/Profile/ProfilePage';
 import Explore from './Components/Explore/Explore';
 import Notifications from './Components/Notifications/Notifications';
 import Messages from './Components/Messages/Messages';
@@ -24,7 +24,7 @@ function App() {
 			<Route path="/messages" element={<Messages />} />
 			<Route path="/bookmarks" element={<Bookmarks />} />
 			<Route path="/lists" element={<Lists />} />
-			<Route path="/profile" element={<Profile />} />
+			<Route path="/profile" element={<ProfilePage />} />
 			<Route path="/settings" element={<Settings />} />
 		</Routes>
 	);

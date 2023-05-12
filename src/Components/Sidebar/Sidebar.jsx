@@ -7,7 +7,7 @@ import SidebarOption from './SidebarOption';
 //ICONS
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
+import TagIcon from '@mui/icons-material/Tag';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
@@ -26,7 +26,9 @@ function Sidebar() {
 
 	return (
 		<div className="sidebar">
-			<TwitterIcon className="sidebar__twitterIcon" />
+			<Link to="/home">
+				<TwitterIcon className="sidebar__twitterIcon" />
+			</Link>
 
 			<Link to="/home">
 				<SidebarOption
@@ -38,7 +40,7 @@ function Sidebar() {
 			<Link to="/explore">
 				<SidebarOption
 					active={isActive === '/explore'}
-					Icon={SearchIcon}
+					Icon={TagIcon}
 					text="Explore"
 				/>
 			</Link>

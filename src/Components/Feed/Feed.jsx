@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Feed.css';
 
 //COMPONENTS
 import TweetBox from './TweetBox';
-import Post from './Post';
-
-//FIRESTORE
-import { db } from '../../utils/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import Posts from './Posts';
 
 function Feed() {
-	const [posts, setPosts] = useState([]);
-
-	useEffect(() => {
-		async function getPosts(db) {
-			const postsCol = collection(db, 'posts');
-			const postSnapshot = await getDocs(postsCol);
-			const result = postSnapshot.docs.map((doc) => doc.data());
-			setPosts(result);
-		}
-		getPosts(db);
-	}, []);
-
 	return (
 		<div className="feed">
 			<div className="feed__header">
@@ -30,17 +14,7 @@ function Feed() {
 
 			<TweetBox />
 
-			{posts.map((post) => (
-				<Post
-					key={post.text}
-					displayName={post.displayName}
-					username={post.username}
-					verified={post.verified}
-					text={post.text}
-					avatar={post.avatar}
-					image={post.image}
-				/>
-			))}
+			<Posts />
 		</div>
 	);
 }

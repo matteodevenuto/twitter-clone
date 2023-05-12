@@ -7,6 +7,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import IosShareIcon from '@mui/icons-material/IosShare';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const Post = forwardRef(
 	({ displayName, username, verified, text, image, avatar }, ref) => {
@@ -34,6 +35,7 @@ const Post = forwardRef(
 					<div className="post__footer">
 						<ChatBubbleOutlineIcon fontSize="small" />
 						<RepeatIcon fontSize="small" />
+						<FavoriteBorderIcon fontSize="small" />
 						<BookmarkBorderIcon fontSize="small" />
 						<IosShareIcon fontSize="small" />
 					</div>

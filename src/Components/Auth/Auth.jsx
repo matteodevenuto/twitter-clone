@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Auth.css';
+
 // COMPONENTS
 import SignIn from '../Forms/Sign-in';
 import SignUp from '../Forms/Sign-up';

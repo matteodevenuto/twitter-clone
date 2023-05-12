@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Explore.css';
 
 import Sidebar from '../Sidebar/Sidebar';

@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './Form.css';
 
@@ -15,6 +16,8 @@ function SignIn() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
+	const navigate = useNavigate();
+
 	const { setCurrentUser } = useContext(UserContext);
 
 	const resetFormFields = () => {
@@ -29,8 +32,9 @@ function SignIn() {
 				email,
 				password
 			);
-			setCurrentUser(user);
+			setCurrentUser(user.uid);
 			resetFormFields();
+			navigate('/profile');
 		} catch (error) {
 			switch (error.code) {
 				case 'auth/wrong-password':

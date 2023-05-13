@@ -49,10 +49,12 @@ export const createUserDocumentFromAuth = async (
 				url: null,
 				bio: null,
 				location: null,
-				profilePicture:
+				avatar:
 					'https://media.idownloadblog.com/wp-content/uploads/2017/03/Twitter-new-2017-avatar-001.png',
 				banner:
 					'https://www.rccaraction.com/wp-content/uploads/2014/04/600-x-200-banner.jpg',
+				following: {},
+				followers: {},
 				...additionalInformation,
 			});
 		} catch (error) {

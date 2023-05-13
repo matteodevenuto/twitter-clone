@@ -57,7 +57,7 @@ function SettingsOptions() {
 						onChange={handleChange}
 					/>
 					<input
-						name="profilePicture"
+						name="avatar"
 						placeholder="Add Profile Picture URL"
 						type="url"
 						onChange={handleChange}

@@ -2,8 +2,9 @@ import React from 'react';
 
 import './Profile.css';
 
-import Posts from '../Feed/Posts';
+import ProfileFeed from '../Profile/ProfileFeed';
 
+import { Avatar } from '@mui/material';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import LinkIcon from '@mui/icons-material/Link';
@@ -18,18 +19,19 @@ const Profile = ({
 	location,
 	link,
 	verified,
-	profilePicture,
+	avatar,
 	banner,
+	userId,
 }) => {
 	return (
 		<div className="profile">
 			<div className="profile-header">
 				<div className="profile-banner">
-					<img src={banner} />
+					<img src={banner} alt="banner" />
 				</div>
 				<div className="profile-picture">
 					{/* Display the user's profile picture */}
-					<img src={profilePicture} alt="Profile Picture" />
+					<Avatar alt="Profile" src={avatar} sx={{ width: 100, height: 100 }} />
 				</div>
 				<div className="profile-info">
 					{/* Display the user's name and username */}
@@ -46,12 +48,16 @@ const Profile = ({
 					<div className="profile-extra">
 						{location && <PlaceOutlinedIcon size="small" />}
 						<p>{location}</p>
-						{link && <LinkIcon size="small" />}
-						<p>
-							<a href={link} alt="link" className="link" target="__blank">
-								{link}
-							</a>
-						</p>
+						{link && (
+							<>
+								<LinkIcon size="small" />
+								<p>
+									<a href={link} alt="link" className="link" target="__blank">
+										{link.replace(/^https?:\/\//i, '')}
+									</a>
+								</p>
+							</>
+						)}
 					</div>
 				</div>
 			</div>
@@ -71,7 +77,7 @@ const Profile = ({
 				</div>
 			</div>
 			<div className="profile-posts">
-				<Posts />
+				<ProfileFeed userId={userId} />
 			</div>
 		</div>
 	);

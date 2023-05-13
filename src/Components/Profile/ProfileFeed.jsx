@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import Post from './Post';
+import Post from '../Feed/Post';
 
 // FIRESTORE
 import { db } from '../../utils/firebase';
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import {
+	collection,
+	getDocs,
+	doc,
+	getDoc,
+	query,
+	where,
+} from 'firebase/firestore';
 
-function Posts() {
+function ProfileFeed({ userId }) {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
 		async function getPosts() {
 			const postsCol = collection(db, 'posts');
-			const postSnapshot = await getDocs(postsCol);
+
+			// Get posts where userRef field matches the userId
+			const userPostsQuery = query(
+				postsCol,
+				where('userRef', '==', doc(db, `users/${userId}`))
+			);
+
+			const postSnapshot = await getDocs(userPostsQuery);
 
 			const postPromises = postSnapshot.docs.map(async (doc) => {
 				const post = doc.data();
@@ -26,11 +40,15 @@ function Posts() {
 			});
 
 			const postResults = await Promise.all(postPromises);
+
+			// Sort posts based on a timestamp field in descending order
+			postResults.sort((a, b) => b.timestamp - a.timestamp);
+
 			setPosts(postResults);
 		}
 
 		getPosts();
-	}, []);
+	}, [userId]);
 
 	return (
 		<div>
@@ -49,4 +67,4 @@ function Posts() {
 	);
 }
 
-export default Posts;
+export default ProfileFeed;

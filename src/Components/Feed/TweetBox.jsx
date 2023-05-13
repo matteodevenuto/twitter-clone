@@ -1,31 +1,42 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext, useEffect } from 'react';
 import './TweetBox.css';
-
 import { Avatar, Button } from '@mui/material';
-
-// FIRESTORE
+import { UserContext } from '../../contexts/UserContext';
 import { db } from '../../utils/firebase';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { collection, doc, setDoc, getDoc } from 'firebase/firestore';
 
 function TweetBox() {
 	const [tweetMessage, setTweetMessage] = useState('');
 	const [tweetImage, setTweetImage] = useState('');
 
-	const sendTweet = (e) => {
+	const { currentUser } = useContext(UserContext);
+
+	const [userData, setUserData] = useState();
+	useEffect(() => {
+		const getCurrentUser = async () => {
+			const userDocRef = doc(db, 'users', currentUser);
+			const userSnapshot = await getDoc(userDocRef);
+			if (userSnapshot.exists()) {
+				setUserData(userSnapshot.data());
+			}
+		};
+
+		getCurrentUser();
+	}, [currentUser]);
+
+	const sendTweet = async (e) => {
 		e.preventDefault();
 
+		const userDocRef = doc(db, 'users', currentUser);
 		const newPost = doc(collection(db, 'posts'));
 		const data = {
-			displayName: 'Matteo De Venuto',
-			username: 'matteodevenuto',
-			verified: true,
 			text: tweetMessage,
 			image: tweetImage,
-			avatar:
-				'https://pbs.twimg.com/profile_images/1646606686172467202/oX95Ekb4_400x400.jpg',
+			userRef: userDocRef,
+			timestamp: new Date(),
 		};
-		setDoc(newPost, data);
+		await setDoc(newPost, data);
+
 		setTweetMessage('');
 		setTweetImage('');
 	};
@@ -36,7 +47,7 @@ function TweetBox() {
 				<div className="tweetBox__input">
 					<Avatar
 						alt="Avatar"
-						src="https://pbs.twimg.com/profile_images/1646606686172467202/oX95Ekb4_400x400.jpg"
+						src={userData?.avatar}
 						sx={{ width: 48, height: 48 }}
 					/>
 					<input

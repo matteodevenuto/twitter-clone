@@ -40,8 +40,9 @@ function ProfilePage() {
 				location={userData?.location}
 				link={userData?.url}
 				verified={userData?.verified}
-				profilePicture={userData?.profilePicture}
+				avatar={userData?.avatar}
 				banner={userData?.banner}
+				userId={currentUser}
 			/>
 			<Widgets />
 		</div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 import './Auth.css';
 
@@ -9,8 +10,13 @@ import SignUp from '../Forms/Sign-up';
 function Auth() {
 	return (
 		<div className="auth-container">
-			<SignIn />
-			<SignUp />
+			<div className="logo-container">
+				<TwitterIcon className="logo" />
+			</div>
+			<div className="forms-container">
+				<SignIn />
+				<SignUp />
+			</div>
 		</div>
 	);
 }

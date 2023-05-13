@@ -1,4 +1,13 @@
 .auth-container {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	margin-top: 200px;
+}
+
+.auth-container > * {
+	margin-right: 20px;
+}
+
+.auth-container > :last-child {
+	margin-right: 0;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -14,18 +14,28 @@ import Bookmarks from './Components/Bookmarks/Bookmarks';
 import Lists from './Components/Lists/Lists';
 import Settings from './Components/Settings/Settings';
 
+// USER CONTEXT
+import { UserContext } from './contexts/UserContext';
+
 function App() {
+	const { currentUser } = useContext(UserContext);
+
 	return (
 		<Routes>
-			<Route path="/home" element={<Home />} />
-			<Route index path="/" element={<Auth />} />
-			<Route path="/explore" element={<Explore />} />
-			<Route path="/notifications" element={<Notifications />} />
-			<Route path="/messages" element={<Messages />} />
-			<Route path="/bookmarks" element={<Bookmarks />} />
-			<Route path="/lists" element={<Lists />} />
-			<Route path="/profile" element={<ProfilePage />} />
-			<Route path="/settings" element={<Settings />} />
+			{currentUser ? (
+				<>
+					<Route path="/home" element={<Home />} />
+					<Route path="/explore" element={<Explore />} />
+					<Route path="/notifications" element={<Notifications />} />
+					<Route path="/messages" element={<Messages />} />
+					<Route path="/bookmarks" element={<Bookmarks />} />
+					<Route path="/lists" element={<Lists />} />
+					<Route path="/profile" element={<ProfilePage />} />
+					<Route path="/settings" element={<Settings />} />
+				</>
+			) : (
+				<Route index path="/" element={<Auth />} />
+			)}
 		</Routes>
 	);
 }

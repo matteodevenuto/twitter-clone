@@ -18,7 +18,7 @@ function App() {
 	return (
 		<Routes>
 			<Route path="/home" element={<Home />} />
-			<Route path="/auth" element={<Auth />} />
+			<Route index path="/" element={<Auth />} />
 			<Route path="/explore" element={<Explore />} />
 			<Route path="/notifications" element={<Notifications />} />
 			<Route path="/messages" element={<Messages />} />

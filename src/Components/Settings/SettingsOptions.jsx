@@ -8,7 +8,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { db } from '../../utils/firebase';
 
 function SettingsOptions() {
-	const { currentUser } = useContext(UserContext);
+	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const navigate = useNavigate();
 	const [formFields, setFormFields] = useState({});
 
@@ -35,6 +35,12 @@ function SettingsOptions() {
 		} catch (error) {
 			console.log(error);
 		}
+	};
+
+	const handleLogout = () => {
+		// Perform logout actions here, such as clearing user data, session, etc.
+		setCurrentUser(null);
+		navigate('/');
 	};
 
 	return (
@@ -88,6 +94,7 @@ function SettingsOptions() {
 					/>
 					<button type="submit">Save Changes</button>
 				</form>
+				<button onClick={handleLogout}>Logout</button>
 			</div>
 		</div>
 	);

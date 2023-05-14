@@ -24,7 +24,6 @@
   - Users will receive notifications from any activity.
 
 - **Getting started:**
-
-You can try the project online at https://twitter-clone-eta-ruby.vercel.app/
+  - You can try the project online at https://twitter-clone-eta-ruby.vercel.app/
 
 

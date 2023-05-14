@@ -1,6 +1,9 @@
-- **Project name:** Twitter Clone
-- **Author:** Matteo De Venuto
-- **Description:** A Twitter clone built with React and Firebase
+# Twitter Clone
+
+ **Author:** Matteo De Venuto
+ <br>
+ **Description:** A Twitter clone built with React and Firebase
+<hr>
 
 - **Features:**
 
@@ -22,25 +25,6 @@
 
 - **Getting started:**
 
-  1.  Clone the repository:
+You can try the project online at https://twitter-clone-eta-ruby.vercel.app/
 
-              ```git clone https://github.com/matteodevenuto/twitter-clone.git
 
-      ```
-
-      ```
-
-  2.  Install the dependencies:
-
-              ```npm install
-
-      ```
-
-      ```
-
-  3.  Start the development server:
-      `npm start
-`
-      The project will be available at `localhost:3000`.
-
-I hope this documentation is helpful. Please let me know if you have any questions.

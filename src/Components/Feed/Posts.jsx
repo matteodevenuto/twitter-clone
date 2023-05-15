@@ -3,7 +3,13 @@ import Post from './Post';
 
 // FIRESTORE
 import { db } from '../../utils/firebase';
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import {
+	collection,
+	getDocs,
+	query,
+	orderBy,
+	getDoc,
+} from 'firebase/firestore';
 
 function Posts() {
 	const [posts, setPosts] = useState([]);
@@ -11,7 +17,8 @@ function Posts() {
 	useEffect(() => {
 		async function getPosts() {
 			const postsCol = collection(db, 'posts');
-			const postSnapshot = await getDocs(postsCol);
+			const orderedQuery = query(postsCol, orderBy('timestamp', 'desc'));
+			const postSnapshot = await getDocs(orderedQuery);
 
 			const postPromises = postSnapshot.docs.map(async (doc) => {
 				const post = doc.data();

@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import * as firebase from 'firebase/app';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
@@ -79,3 +80,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 	return await signInWithEmailAndPassword(auth, email, password);
 };
+
+// Initialize Storage and get a reference to the service
+export const storage = getStorage(app);

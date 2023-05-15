@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
-
-// FIRESTORE
 import { db } from '../../utils/firebase';
 import {
 	collection,
@@ -15,7 +13,9 @@ function Posts() {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		async function getPosts() {
+		let isMounted = true;
+
+		const getPosts = async () => {
 			const postsCol = collection(db, 'posts');
 			const orderedQuery = query(postsCol, orderBy('timestamp', 'desc'));
 			const postSnapshot = await getDocs(orderedQuery);
@@ -33,10 +33,19 @@ function Posts() {
 			});
 
 			const postResults = await Promise.all(postPromises);
-			setPosts(postResults);
-		}
+			if (isMounted) {
+				setPosts(postResults);
+			}
+		};
 
 		getPosts();
+
+		const pollingInterval = setInterval(getPosts, 10000); // Poll every 10 seconds
+
+		return () => {
+			isMounted = false;
+			clearInterval(pollingInterval);
+		};
 	}, []);
 
 	return (

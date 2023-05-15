@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import './TweetBox.css';
 import { Avatar, Button, LinearProgress } from '@mui/material';
 import { UserContext } from '../../contexts/UserContext';
@@ -16,6 +16,8 @@ function TweetBox() {
 	const { currentUser } = useContext(UserContext);
 
 	const [userData, setUserData] = useState();
+
+	const fileInputRef = useRef(null);
 
 	useEffect(() => {
 		const getCurrentUser = async () => {
@@ -98,6 +100,7 @@ function TweetBox() {
 							setCharacterCount(0);
 							setUploadProgress(0);
 							setIsUploading(false);
+							fileInputRef.current.value = null;
 						} catch (error) {
 							console.error('Error saving download URL:', error);
 							setIsUploading(false);
@@ -141,6 +144,7 @@ function TweetBox() {
 					/>
 				</div>
 				<input
+					ref={fileInputRef}
 					onChange={handleImageChange}
 					className="tweetBox__imageInput"
 					id="fileInput"

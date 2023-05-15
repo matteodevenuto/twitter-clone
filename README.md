@@ -10,6 +10,7 @@
   - Users can create accounts, sign in, and sign out.
   - Users can edit their profile information in the settings page.
   - Users can post tweets, which are limited to 280 characters.
+  - Users can upload files such as images or GIFs to post with their tweets.
   - Users can see a chronological feed in the Home page (currently shows tweets from every user).
 
 - **Currently Working On:**

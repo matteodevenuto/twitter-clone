@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Post from '../Feed/Post';
 
+import './ProfileFeed';
+
 // FIRESTORE
 import { db } from '../../utils/firebase';
 import {
@@ -51,17 +53,18 @@ function ProfileFeed({ userId }) {
 	}, [userId]);
 
 	return (
-		<div>
+		<div className="profileFeed">
 			{posts.map((post) => (
-				<Post
-					key={post.text}
-					displayName={post.userRef.displayName}
-					username={post.userRef.username}
-					verified={post.userRef.verified}
-					text={post.text}
-					avatar={post.userRef.avatar}
-					image={post.image}
-				/>
+				<div key={post.text} className="profileFeedItem">
+					<Post
+						displayName={post.userRef.displayName}
+						username={post.userRef.username}
+						verified={post.userRef.verified}
+						text={post.text}
+						avatar={post.userRef.avatar}
+						image={post.image}
+					/>
+				</div>
 			))}
 		</div>
 	);

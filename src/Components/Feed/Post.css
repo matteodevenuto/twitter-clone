@@ -9,18 +9,8 @@
 .post__body {
 	flex: 1;
 	padding: 10px;
-}
-
-.post__body > img {
-	border-radius: 20px;
-}
-
-.post__footer {
 	display: flex;
-	justify-content: space-between;
-	margin-top: 20px;
-	padding-right: 30px;
-	margin-left: -30px;
+	flex-direction: column; /* Add this line to stack the content vertically */
 }
 
 .post__headerDescription {
@@ -28,7 +18,7 @@
 	font-size: 15px;
 }
 
-.post__headerText > h3 {
+.post__headerText h3 {
 	font-size: 15px;
 	margin-bottom: 5px;
 }
@@ -46,4 +36,64 @@
 
 .post__avatar {
 	padding: 10px;
+}
+
+.post__media {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.post__media-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.post__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.post__imageOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.post__expandedImage {
+	max-width: 90%;
+	max-height: 90%;
+	object-fit: contain;
+	border-radius: 10px;
+}
+
+.expanded .post__media-container {
+	cursor: zoom-out;
+}
+
+.expanded .post__imageOverlay {
+	cursor: zoom-out;
+}
+
+.post__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
 }

@@ -29,22 +29,28 @@ function ProfilePage() {
 
 	return (
 		<div className="app">
-			<Sidebar />
-			<Profile
-				username={userData?.username}
-				name={userData?.displayName}
-				bio={userData?.bio}
-				followerCount="96"
-				followingCount="620"
-				tweetCount="667"
-				location={userData?.location}
-				link={userData?.url}
-				verified={userData?.verified}
-				avatar={userData?.avatar}
-				banner={userData?.banner}
-				userId={currentUser}
-			/>
-			<Widgets />
+			<div className="profilePage__left">
+				<Sidebar />
+			</div>
+			<div className="profilePage__middle">
+				<Profile
+					username={userData?.username}
+					name={userData?.displayName}
+					bio={userData?.bio}
+					followerCount="96"
+					followingCount="620"
+					tweetCount="667"
+					location={userData?.location}
+					link={userData?.url}
+					verified={userData?.verified}
+					avatar={userData?.avatar}
+					banner={userData?.banner}
+					userId={currentUser}
+				/>
+			</div>
+			<div className="profilePage__right">
+				<Widgets />
+			</div>
 		</div>
 	);
 }

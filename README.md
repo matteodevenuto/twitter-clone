@@ -1,8 +1,9 @@
 # Twitter Clone
 
- **Author:** Matteo De Venuto
- <br>
- **Description:** A Twitter clone built with React and Firebase
+**Author:** Matteo De Venuto
+<br>
+**Description:** A Twitter clone built with React and Firebase
+
 <hr>
 
 - **Features:**
@@ -10,6 +11,7 @@
   - Users can create accounts, sign in, and sign out.
   - Users can edit their profile information in the settings page.
   - Users can post tweets, which are limited to 280 characters.
+  - Users can upload files such as images or GIFs to post with their tweets.
   - Users can see a chronological feed in the Home page (currently shows tweets from every user).
 
 - **Currently Working On:**
@@ -25,5 +27,3 @@
 
 - **Getting started:**
   - You can try the project online at https://twitter-clone-eta-ruby.vercel.app/
-
-

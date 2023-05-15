@@ -1,0 +1,10 @@
+.profileFeed {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.profileFeedItem {
+	flex: 0 0 300px;
+	margin-bottom: 20px;
+}

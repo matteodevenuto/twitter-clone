@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import './Post.css';
 
 import { Avatar } from '@mui/material';
@@ -10,6 +10,16 @@ import IosShareIcon from '@mui/icons-material/IosShare';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 function Post({ displayName, username, verified, text, image, avatar }) {
+	const [expandedImage, setExpandedImage] = useState(false);
+
+	const handleImageClick = () => {
+		setExpandedImage(true);
+	};
+
+	const handleCloseImage = () => {
+		setExpandedImage(false);
+	};
+
 	return (
 		<div className="post">
 			<div className="post__avatar">
@@ -30,7 +40,23 @@ function Post({ displayName, username, verified, text, image, avatar }) {
 						<p>{text}</p>
 					</div>
 				</div>
-				{image && <img src={image} alt="" />}
+				{image && (
+					<div className={`post__media ${expandedImage ? 'expanded' : ''}`}>
+						<div className="post__media-container">
+							<img
+								className="post__image"
+								src={image}
+								alt=""
+								onClick={handleImageClick}
+							/>
+						</div>
+						{expandedImage && (
+							<div className="post__imageOverlay" onClick={handleCloseImage}>
+								<img className="post__expandedImage" src={image} alt="" />
+							</div>
+						)}
+					</div>
+				)}
 				<div className="post__footer">
 					<ChatBubbleOutlineIcon fontSize="small" />
 					<RepeatIcon fontSize="small" />

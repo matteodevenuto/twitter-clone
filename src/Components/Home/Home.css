@@ -1,0 +1,20 @@
+.app {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.home__middle {
+	flex: 0.4;
+}
+
+.home_left {
+	flex: 0.3;
+}
+
+.home_right {
+	flex: 0.3;
+}
+/* Rest of the CSS styles for the home page */

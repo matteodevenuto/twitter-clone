@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
 
-//ICONS
+// ICONS
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';
 import TagIcon from '@mui/icons-material/Tag';
@@ -25,72 +24,74 @@ function Sidebar() {
 	}, [location]);
 
 	return (
-		<div className="sidebar">
-			<Link to="/home">
-				<TwitterIcon className="sidebar__twitterIcon" />
-			</Link>
+		<div className="sidebar-container">
+			<div className="sidebar">
+				<Link to="/home">
+					<TwitterIcon className="sidebar__twitterIcon" />
+				</Link>
 
-			<Link to="/home">
-				<SidebarOption
-					active={isActive === '/home'}
-					Icon={HomeIcon}
-					text="Home"
-				/>
-			</Link>
-			<Link to="/explore">
-				<SidebarOption
-					active={isActive === '/explore'}
-					Icon={TagIcon}
-					text="Explore"
-				/>
-			</Link>
-			<Link to="/notifications">
-				<SidebarOption
-					active={isActive === '/notifications'}
-					Icon={NotificationsNoneIcon}
-					text="Notifications"
-				/>
-			</Link>
-			<Link to="/messages">
-				<SidebarOption
-					active={isActive === '/messages'}
-					Icon={MailOutlineIcon}
-					text="Messages"
-				/>
-			</Link>
-			<Link to="/bookmarks">
-				<SidebarOption
-					active={isActive === '/bookmarks'}
-					Icon={BookmarkBorderIcon}
-					text="Bookmarks"
-				/>
-			</Link>
-			<Link to="/lists">
-				<SidebarOption
-					active={isActive === '/lists'}
-					Icon={ListAltIcon}
-					text="Lists"
-				/>
-			</Link>
-			<Link to="/profile">
-				<SidebarOption
-					active={isActive === '/profile'}
-					Icon={PermIdentityIcon}
-					text="Profile"
-				/>
-			</Link>
-			<Link to="/settings">
-				<SidebarOption
-					active={isActive === '/settings'}
-					Icon={SettingsIcon}
-					text="Settings"
-				/>
-			</Link>
+				<Link to="/home">
+					<SidebarOption
+						active={isActive === '/home'}
+						Icon={HomeIcon}
+						text="Home"
+					/>
+				</Link>
+				<Link to="/explore">
+					<SidebarOption
+						active={isActive === '/explore'}
+						Icon={TagIcon}
+						text="Explore"
+					/>
+				</Link>
+				<Link to="/notifications">
+					<SidebarOption
+						active={isActive === '/notifications'}
+						Icon={NotificationsNoneIcon}
+						text="Notifications"
+					/>
+				</Link>
+				<Link to="/messages">
+					<SidebarOption
+						active={isActive === '/messages'}
+						Icon={MailOutlineIcon}
+						text="Messages"
+					/>
+				</Link>
+				<Link to="/bookmarks">
+					<SidebarOption
+						active={isActive === '/bookmarks'}
+						Icon={BookmarkBorderIcon}
+						text="Bookmarks"
+					/>
+				</Link>
+				<Link to="/lists">
+					<SidebarOption
+						active={isActive === '/lists'}
+						Icon={ListAltIcon}
+						text="Lists"
+					/>
+				</Link>
+				<Link to="/profile">
+					<SidebarOption
+						active={isActive === '/profile'}
+						Icon={PermIdentityIcon}
+						text="Profile"
+					/>
+				</Link>
+				<Link to="/settings">
+					<SidebarOption
+						active={isActive === '/settings'}
+						Icon={SettingsIcon}
+						text="Settings"
+					/>
+				</Link>
 
-			{/* Button -> Tweet */}
-			<Button variant="outlined" className="sidebar__tweet" fullWidth>
-				Tweet
-			</Button>
+				{/* Button -> Tweet */}
+				<Button variant="outlined" className="sidebar__tweet" fullWidth>
+					Tweet
+				</Button>
+			</div>
 		</div>
 	);
 }

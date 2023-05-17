@@ -10,7 +10,7 @@
 	flex: 1;
 	padding: 10px;
 	display: flex;
-	flex-direction: column; /* Add this line to stack the content vertically */
+	flex-direction: column;
 }
 
 .post__headerDescription {

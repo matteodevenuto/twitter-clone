@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
+import './Posts.css';
 import { db } from '../../utils/firebase';
 import {
 	collection,
@@ -49,7 +50,7 @@ function Posts() {
 	}, []);
 
 	return (
-		<div>
+		<div className="posts-container">
 			{posts.map((post) => (
 				<Post
 					key={post.text}
